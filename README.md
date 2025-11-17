@@ -15,15 +15,6 @@ Date of Birth
 
 Aadhaar Number
 
-📁 Project Structure
-Aadhaar-Fraud-Detection/
-│
-├── app.py               → Streamlit UI App
-├── requirements.txt     → Dependencies
-├── README.md            → Project Documentation
-├── metadata.csv         → Label Metadata
-├── ocr_extraction.py    → OCR core logic
-└── document_verification.py → Prediction Helper
 
 📦 Download Project Files (Dataset + Model)
 
