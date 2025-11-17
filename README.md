@@ -30,4 +30,6 @@ This project uses **Deep Learning (CNN Model)** and **Tesseract OCR** to verify 
 
 ---
 
-### 📂 Project Structure
+### 📂 download project zip folder
+google drive link given here
+https://drive.google.com/file/d/1zZIqUwtVRsPixrcXvaAOIc8-lHM4lupP/view?usp=sharing
