@@ -17,7 +17,6 @@ st.write("Upload Aadhaar card to detect tampering and extract details automatica
 # -----------------------------------------------------
 # Tesseract OCR Path (Update if needed)
 # -----------------------------------------------------
-pytesseract.pytesseract.tesseract_cmd = r"C:\Users\Y SRIRAM\tesseract.exe"
 
 # -----------------------------------------------------
 # Load Model
