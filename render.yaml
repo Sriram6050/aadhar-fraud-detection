@@ -2,5 +2,7 @@ services:
   - type: web
     name: aadhar-fraud-detection
     env: docker
+    region: singapore
+    dockerfilePath: Dockerfile
     plan: free
-    dockerfilePath: ./Dockerfile
+    autoDeploy: true
