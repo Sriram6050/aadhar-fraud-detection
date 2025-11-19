@@ -1,6 +1,6 @@
 streamlit
-opencv-python-headless
 numpy
 tensorflow==2.12.0
 Pillow
 pytesseract
+opencv-contrib-python-headless
