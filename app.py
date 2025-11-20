@@ -17,6 +17,7 @@ st.write("Upload Aadhaar card to detect tampering and extract details automatica
 # -----------------------------------------------------
 # Tesseract OCR Path (Update if needed)
 # -----------------------------------------------------
+pytesseract.pytesseract.tesseract_cmd = r"C:\Users\Y SRIRAM\tesseract.exe"
 
 # -----------------------------------------------------
 # Load Model
@@ -75,7 +76,7 @@ def extract_fields(text):
     st.text_area("📌 Cleaned OCR Text", text, height=140)
 
     # Name extraction (more flexible)
-    name_pattern = r"(?:Name|नाम|a\/w|S\/O)[:\s\-]*([A-Za-z]{3,}(?:\s[A-Za-z]{3,})*)"
+    name_pattern = r"(?:Name|नाम|a\/w|S\/O)[:\s\-]([A-Za-z]{3,}(?:\s[A-Za-z]{3,}))"
     name = re.search(name_pattern, text, re.IGNORECASE)
 
     # DOB extraction
@@ -127,7 +128,7 @@ if uploaded_file:
 
     st.image(img, caption="📌 Upscaled Image", use_container_width=True)
 
-    with st.spinner("⚙️ Processing Image..."):
+    with st.spinner("⚙ Processing Image..."):
         preprocessed = preprocess_image(img)
     st.image(preprocessed, caption="🧾 Preprocessed for OCR", use_container_width=True)
 
@@ -135,8 +136,8 @@ if uploaded_file:
         label, conf = predict_authenticity(img)
 
     st.subheader("🎯 Prediction Result")
-    st.write(f"**Status:** {label}")
-    st.write(f"**Confidence:** {conf}")
+    st.write(f"*Status:* {label}")
+    st.write(f"*Confidence:* {conf}")
 
     with st.spinner("🔍 Extracting Text Fields..."):
         text = extract_text(preprocessed)
@@ -145,9 +146,9 @@ if uploaded_file:
     fields = extract_fields(text)
     
     st.subheader("📋 Extracted Aadhaar Fields")
-    st.write(f"👤 **Name:** {fields['Name'] or '❌ Not Detected'}")
-    st.write(f"🎂 **DOB:** {fields['DOB'] or '❌ Not Detected'}")
-    st.write(f"🔢 **Aadhaar No.:** {fields['Aadhaar'] or '❌ Not Detected'}")
+    st.write(f"👤 *Name:* {fields['Name'] or '❌ Not Detected'}")
+    st.write(f"🎂 *DOB:* {fields['DOB'] or '❌ Not Detected'}")
+    st.write(f"🔢 *Aadhaar No.:* {fields['Aadhaar'] or '❌ Not Detected'}")
 
     st.write("---")
     valid = label == "Genuine" and fields['Aadhaar']
